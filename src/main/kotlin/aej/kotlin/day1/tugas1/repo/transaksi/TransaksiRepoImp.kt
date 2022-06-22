@@ -19,11 +19,11 @@ class TransaksiRepoImp: TransaksiRepo {
     fun transaksiCollection() =
         databaseComponent.database.getDatabase("aejD1").getCollection<TransaksiDatabase>()
 
-    override fun getTransaksis(): List<TransaksiDatabase> {
+    suspend override fun getTransaksis(): List<TransaksiDatabase> {
         return transaksiCollection().find().toList()
     }
 
-    override fun addTransaksi(transaksiRequest: TransaksiRequest, timeNow: Time): TransaksiDatabase {
+    suspend override fun addTransaksi(transaksiRequest: TransaksiRequest, timeNow: Time): TransaksiDatabase {
         val transaksiDatabase = TransaksiDatabase(
             id = UUID.randomUUID().toString(),
             userId = transaksiRequest.userId,

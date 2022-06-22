@@ -4,6 +4,6 @@ import aej.kotlin.day1.tugas1.model.mobil.MobilDatabase
 import aej.kotlin.day1.tugas1.model.mobil.MobilRequest
 
 interface MobilService {
-    fun getAllMobil(): List<MobilDatabase>
-    fun addMobil(mobilRequest: MobilRequest): MobilDatabase
+    suspend fun getAllMobil(): List<MobilDatabase>
+    suspend fun addMobil(mobilRequest: MobilRequest): MobilDatabase
 }

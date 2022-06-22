@@ -20,15 +20,15 @@ class UserRepoImp: UserRepo {
     private fun userCollection(): MongoCollection<UserDatabase> =
         databaseComponent.database.getDatabase("aejD1").getCollection()
 
-    override fun getUserByUsername(username: String): UserDatabase? {
+    override suspend fun getUserByUsername(username: String): UserDatabase? {
         return userCollection().findOne { UserDatabase::username eq username }
     }
 
-    override fun getUsers(): List<UserDatabase> {
+    override suspend fun getUsers(): List<UserDatabase> {
         return userCollection().find().toList()
     }
 
-    override fun addUser(userRequest: UserRequest): UserDatabase {
+    override suspend fun addUser(userRequest: UserRequest): UserDatabase {
         val userDatabase = UserDatabase(
             id = UUID.randomUUID().toString(),
             name = userRequest.name,

@@ -12,11 +12,11 @@ class MobilServiceImp: MobilService {
     @Autowired
     private lateinit var mobilRepo: MobilRepo
 
-    override fun getAllMobil(): List<MobilDatabase> {
+    override suspend fun getAllMobil(): List<MobilDatabase> {
         return mobilRepo.getMobils()
     }
 
-    override fun addMobil(mobilRequest: MobilRequest): MobilDatabase {
+    override suspend fun addMobil(mobilRequest: MobilRequest): MobilDatabase {
         return mobilRepo.addMobil(mobilRequest)
     }
 }

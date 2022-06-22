@@ -20,11 +20,11 @@ class MobilRepoImp: MobilRepo {
     private fun mobilCollection(): MongoCollection<MobilDatabase> =
         databaseComponent.database.getDatabase("aejD1").getCollection()
 
-    override fun getMobils(): List<MobilDatabase> {
+    override suspend fun getMobils(): List<MobilDatabase> {
         return mobilCollection().find().toList()
     }
 
-    override fun addMobil(mobilParams: MobilRequest): MobilDatabase {
+    override suspend fun addMobil(mobilParams: MobilRequest): MobilDatabase {
         val mobil = MobilDatabase(
             id = UUID.randomUUID().toString(),
             name = mobilParams.nama,
@@ -41,7 +41,7 @@ class MobilRepoImp: MobilRepo {
         }
     }
 
-    override fun getMobilByName(name: String): MobilDatabase? {
+    override suspend fun getMobilByName(name: String): MobilDatabase? {
         return mobilCollection().findOne { MobilDatabase::name eq name}
     }
 }

@@ -6,6 +6,6 @@ import aej.kotlin.day1.tugas1.model.transaksi.TransaksiRequest
 import java.util.Date
 
 interface TransaksiRepo {
-    fun getTransaksis(): List<TransaksiDatabase>
-    fun addTransaksi(transaksiRequest: TransaksiRequest, timeNow: Time): TransaksiDatabase
+    suspend fun getTransaksis(): List<TransaksiDatabase>
+    suspend fun addTransaksi(transaksiRequest: TransaksiRequest, timeNow: Time): TransaksiDatabase
 }

@@ -12,15 +12,15 @@ class UserServiceImp: UserService {
     @Autowired
     private lateinit var userRepo: UserRepo
 
-    override fun addUser(userRequest: UserRequest): UserDatabase {
+    override suspend fun addUser(userRequest: UserRequest): UserDatabase {
         return userRepo.addUser(userRequest)
     }
 
-    override fun getUsers(): List<UserDatabase> {
+    override suspend fun getUsers(): List<UserDatabase> {
         return userRepo.getUsers()
     }
 
-    override fun getUserByUsername(username: String): UserDatabase? {
+    override suspend fun getUserByUsername(username: String): UserDatabase? {
         return userRepo.getUserByUsername(username)
     }
 }

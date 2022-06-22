@@ -19,7 +19,7 @@ class TransaksiController {
     private lateinit var transaksiService: TransaksiService
 
     @GetMapping
-    fun getAllTransaksi(): BaseResponse<List<TransaksiDatabase>> {
+    suspend fun getAllTransaksi(): BaseResponse<List<TransaksiDatabase>> {
         return BaseResponse(
             code = "200",
             message = "data berhasil diambil",
@@ -28,7 +28,7 @@ class TransaksiController {
     }
 
     @PostMapping
-    fun addTransaksi(@RequestBody transaksiRequest: TransaksiRequest): BaseResponse<TransaksiDatabase> {
+    suspend fun addTransaksi(@RequestBody transaksiRequest: TransaksiRequest): BaseResponse<TransaksiDatabase> {
         return BaseResponse(
             code = "200",
             message = "data berhasil di input",

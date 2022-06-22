@@ -23,8 +23,10 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("org.litote.kmongo:kmongo:4.6.0")
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
-	implementation("org.springdoc:springdoc-openapi-ui:1.6.8")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	implementation("org.springdoc:springdoc-openapi-ui:1.6.9")
 }
 
 tasks.withType<KotlinCompile> {

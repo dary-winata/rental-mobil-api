@@ -14,11 +14,11 @@ class TransaksiServiceImp: TransaksiService {
     @Autowired
     private lateinit var transaksiRepo: TransaksiRepo
 
-    override fun getAllTransaksi(): List<TransaksiDatabase> {
+    override suspend fun getAllTransaksi(): List<TransaksiDatabase> {
         return transaksiRepo.getTransaksis()
     }
 
-    override fun addTransaksi(transaksiRequest: TransaksiRequest): TransaksiDatabase {
+    override suspend fun addTransaksi(transaksiRequest: TransaksiRequest): TransaksiDatabase {
         return transaksiRepo.addTransaksi(transaksiRequest, getTimeNow())
     }
 
