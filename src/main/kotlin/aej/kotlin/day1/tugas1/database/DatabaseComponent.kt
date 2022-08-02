@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 @Component
 class DatabaseComponent {
     companion object {
-        private const val MONGO_URL = "mongodb+srv://darywinata:zabuza0920@oneforall.ar0ve.mongodb.net/?retryWrites=true&w=majority"
+        private const val MONGO_URL = ""
     }
 
     val database: MongoClient = KMongo.createClient(MONGO_URL)
